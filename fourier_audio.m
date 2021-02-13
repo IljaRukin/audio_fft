@@ -17,9 +17,13 @@ df = Fs/length(xfft); %frequency steps == 1/t
 if mod(length(xfft),2)==1
     %odd number of data samples
     freq = -(Fs-df)/2:df:(Fs-df)/2;
+    %...(N-1)/2...0...(N-1)/2...
+    %-3,-2,-1,0,1,2,3
 else
     %even number of data samples
     freq = -(Fs)/2:df:(Fs-2*df)/2;
+    %...N/2...0...(N-2)/2...
+    %-3,-2,-1,0,1,2
 end
 
 %plot fourier
