@@ -26,8 +26,19 @@ else
     %-3,-2,-1,0,1,2
 end
 
-%plot fourier
+%---
+
+%plot real data
+%{
 figure(1);
+plot(t,abs(x))
+title('real data')
+xlabel('time in s')
+ylabel('amplitude')
+%}
+
+%plot fourier
+figure(2);
 plot(freq,abs(xfft))
 title('fourier transform')
 xlabel('frequency in Hz')
@@ -37,6 +48,6 @@ ylabel('amplitude')
 window = floor(Fs/8);%window width in samples
 noverlap = floor(Fs/64);%number of overlapping samles
 nfft = 2048;%number of fft points used for fft of each window
-figure(2);
+figure(3);
 spectrogram(x,window,noverlap,nfft,Fs,'yaxis')
 title('spectrogram')
